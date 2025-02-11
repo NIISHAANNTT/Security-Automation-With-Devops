@@ -1,0 +1,16 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['192.168.24.147:9090']
+
+  - job_name: 'ec2_instance_metrics'
+    static_configs:
+      - targets: ['192.168.24.147:9000']
+
+  - job_name: 'jenkins'
+    static_configs:
+      - targets: ['192.168.24.147:8080']
+    metrics_path: '/prometheus'
